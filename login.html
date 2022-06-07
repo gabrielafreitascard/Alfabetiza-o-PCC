@@ -1,0 +1,50 @@
+{%load  static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style-login.css'%}">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Bem vindos ao Blog</h1>
+    <div class="main">
+        <div class="esquerda">
+            
+            <img src="{% static 'img/foto.jpg'%}" alt="">
+        </div>
+        <div class="login">
+            <div class="card">
+                <H1>Login</H1>
+ 
+                <form class="form-login" action="{% url 'logar'%}" method="POST">{% csrf_token %}
+                <div class="usuario">
+                    <div class = "form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" placeholder="">
+
+                </div>
+                <div class="senha">
+                    <label for="usuario">Senha</label>
+                    <input type="password"  name="senha" placeholder="">
+                </div>
+                <div class="btn">
+                    <input class="logar" class="btn btn-primary rounded submit p-3 px-5" type="submit" value="Entrar" id="button">
+                </div>
+            </form>
+
+                <div class="btn1">
+                    <a href="../cadastro"><button class="cadastro">Cadastro</button></a>
+                </div>
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}   
+            </div>
+        </div>    
+    </div>
+
+</body>
+</html>

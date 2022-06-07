@@ -1,0 +1,51 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style-login.css'%}">
+</head>
+<body>
+    <h1>Sistema de Cadastro</h1>
+    
+    
+
+    <div class="container">
+        <div class="card-cadastro">
+            <form action="{% url 'cadastro'%}" method="POST">{% csrf_token %}>
+                <label for="name">
+                    <span>Nome</span>
+                    <input type="text" id="name" name="username" required>
+                </label>
+    
+                <label for="email">
+                    <span>E-mail</span>
+                    <input type="email" id="email" name="email" required>
+                </label>
+    
+                <label for="password">
+                    <span>Senha</span>
+                    <input type="password" id="password" name="password" required>
+                </label>
+
+                <label for="password">
+                    <span>Confirmar Senha</span>
+                    <input type="password" id="password" name="password-confirm" required>
+                </label>
+                <div class="btn3">
+                    <input class="cadastrar" type="submit" value="Cadastrar" id="button">
+                </div>
+                
+            </form>
+            <br>
+            {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}           
+        </div>
+    </div>
+
+</body>
+</html>
